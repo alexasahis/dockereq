@@ -1,5 +1,6 @@
 src/*
 db_data/*
+eqemu/shared_memory
 
 # Compiled Object files
 *.slo
