@@ -1,0 +1,80 @@
+version: '3'
+services:
+  mariadbeq:
+    image: "mariadb:latest"
+    volumes:
+      - ./db_data:/var/lib/mysql
+    restart: always
+    environment: 
+      MYSQL_ROOT_PASSWORD: ZP\#.4L)(?&Kc+c}
+      MYSQL_DATABASE: eqemu
+      MYSQL_USER: eqemu
+      MYSQL_PASSWORD: xy23P?9NU"4`sZU8
+    ports:
+      - "3306:3306"
+  worldeq:
+    build: ./docker/world/.
+    volumes:
+      - "./eqemu_data:/eqemu"
+    links:
+      - mariadbeq
+    depends_on:
+      - mariadbeq
+    ports:
+      - "9000:9000"
+  ucseq:
+    build: ./docker/ucs/.
+    restart: always
+    volumes:
+      - ./eqemu_data:/eqemu
+    links:
+      - mariadbeq
+      - worldeq
+    depends_on:
+      - mariadbeq
+  queryserveq:
+    build: ./docker/queryserv/.
+    restart: always
+    volumes:
+      - ./eqemu_data:/eqemu
+    links:
+      - mariadbeq
+      - worldeq
+    depends_on:
+      - mariadbeq
+  zone1eq:
+    build: ./docker/zone/.
+    restart: always
+    volumes:
+      - ./eqemu_data:/eqemu
+    depends_on:
+      - mariadbeq
+    links:
+      - mariadbeq
+      - worldeq
+    ports: 
+      - "7000-7500:7000-7500"
+  zone2eq:
+    build: ./docker/zone/.
+    restart: always
+    volumes:
+      - ./eqemu_data:/eqemu
+    depends_on:
+      - mariadbeq
+    links:
+      - mariadbeq
+      - worldeq
+    ports: 
+      - "7000-7500:7000-7500"
+  zone3eq:
+    build: ./docker/zone/.
+    restart: always
+    volumes:
+      - ./eqemu_data:/eqemu
+    depends_on:
+      - mariadbeq
+    links:
+      - mariadbeq
+      - worldeq
+    ports: 
+      - "7000-7500:7000-7500"
