@@ -1,0 +1,9 @@
+# Ignore any built binaries
+eqlaunch
+export_client_files
+import_client_files
+queryserv
+shared_memory
+ucs
+world
+zone
