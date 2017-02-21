@@ -2,4 +2,6 @@
 set -e
 docker-compose down
 docker-compose up
-docker-compose run eqemu /eqemu/shared_memory
+echo "Running Shared Memory on eqemu..."
+docker-compose run -w /eqemu eqemu /eqemu/shared_memory
+docker-compose up

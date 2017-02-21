@@ -13,6 +13,7 @@ services:
     ports:
       - "3306:3306"
   eqemu:
+    stdin_open: true
     build: ./docker/eqemu/.
     restart: always
     volumes:
