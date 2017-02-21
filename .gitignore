@@ -1,4 +1,5 @@
 src/*
+db_data/*
 
 # Compiled Object files
 *.slo
