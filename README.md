@@ -1,5 +1,4 @@
-# dockereq
-Everquest Emulator in Docker.
+# Docker-based Everquest Emulator
 
 ## Introduction
 
@@ -12,7 +11,7 @@ DockerEQ establishes a docker instance for you to run an [Everquest Emulator](ht
 * [Docker Compose](https://github.com/docker/compose/releases)
 
 ### Building from source (Optional)
-* DockerEQ can build eqemu from latest source. To do so, it will pull from a described git repository and place it's contents inside the src/ directory. Running the `build.sh` script will walk you through this procedure.
+* DockerEQ can build eqemu from latest source. To do so, it will pull from a described git repository and place it's contents inside the src/ directory. Running the `build` script will walk you through this procedure.
 
 ### Preparing Environment
 * Copy binaries such as world, ucs, zone, etc compiled for linux to eqemu_data/.
@@ -24,5 +23,5 @@ DockerEQ establishes a docker instance for you to run an [Everquest Emulator](ht
 * Using your favorite MySQL client, such as [HeidiSQL](https://www.heidisql.com/download.php), load the database from a .sql backup file.
 
 ## Running the Server
-* Simply call `start.sh` to start the docker environment. 
+* Simply call `start` to start the docker environment. 
 
